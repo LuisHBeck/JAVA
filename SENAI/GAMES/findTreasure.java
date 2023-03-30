@@ -21,8 +21,8 @@ public class treasure {
 
         System.out.println("————————FIND THE TREASURE————————");
 
-        for (int line = 0; line < matriz.length; line++){
-            for (int rool = 0; rool < matriz.length; rool++){
+        for (int line = 0; line < matriz.length; line++) {
+            for (int rool = 0; rool < matriz.length; rool++) {
                 matriz[line][rool] = " _ ";
                 System.out.print(matriz[line][rool]);
             }
@@ -30,39 +30,38 @@ public class treasure {
         }
 
         int life = 3;
-        while (life > 0){
+        int input_rool;
+        int input_line;
+        do {
             System.out.println();
             System.out.print("Input the line>> ");
-            int input_line = tec.nextInt();
+            input_line = tec.nextInt();
             System.out.print("Input the rool>> ");
-            int input_rool = tec.nextInt();
+            input_rool = tec.nextInt();
             System.out.println();
 
-            if (input_line == i){
+            if (input_line == i) {
                 System.out.println("*You guessed right the Line number*");
-            }else {
+            } else {
                 System.out.println("!You didnt get the Line number!");
             }
-            if (input_rool == j){
+            if (input_rool == j) {
                 System.out.println("*You guessed right the Rool number*");
-            }else {
+            } else {
                 System.out.println("!You didnt get the Rool number!");
             }
             System.out.println();
 
-            if ((input_line == i && input_rool == j) || life == 0){
+            System.out.println();
+            if (input_line == i && input_rool == j){
                 System.out.println("CONGRATS!! YOU WIN");
-                for (int i1 = 0; i1 < matriz.length; i1++){
-                    for (int j1 = 0; j1 < matriz.length; j1++){
-                        matriz[i1][j1] = " _ ";
-                        matriz[i][j] = " $ ";
-                        System.out.print(matriz[i1][j1]);
-                    }
-                    System.out.println();
-                }
-            }else {
-                for (int line = 0; line < matriz.length; line++){
-                    for (int rool = 0; rool < matriz.length; rool++){
+                break;
+            }
+
+            if ((input_line != i && input_rool != j) || life > 0) {
+                life--;
+                for (int line = 0; line < matriz.length; line++) {
+                    for (int rool = 0; rool < matriz.length; rool++) {
                         matriz2[line][rool] = " _ ";
                         matriz2[input_line][input_rool] = " X ";
                         System.out.print(matriz2[line][rool]);
@@ -70,6 +69,18 @@ public class treasure {
                     System.out.println();
                 }
             }
+        } while (life > 0 || (input_line != i && input_rool != j));
+
+        if (life == 0){
+            System.out.println("YOU LOOSE!");
+        }
+        for (int i1 = 0; i1 < matriz.length; i1++) {
+            for (int j1 = 0; j1 < matriz.length; j1++) {
+                matriz[i1][j1] = " _ ";
+                matriz[i][j] = " $ ";
+                System.out.print(matriz[i1][j1]);
+            }
+            System.out.println();
         }
     }
 }
