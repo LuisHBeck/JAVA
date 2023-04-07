@@ -14,20 +14,33 @@ public class Bank {
         this.balance = balance;
     }
 
+    public Bank(int accountNumber, String accountHolder) {
+        this.accountNumber = accountNumber;
+        this.accountHolder = accountHolder;
+    }
+
+    public int getAccountNumber() {
+        return accountNumber;
+    }
+
+    public String getAccountHolder() {
+        return accountHolder;
+    }
+
 
     public void setDeposit(double deposit) {
-        this.deposit = deposit;
+        this.balance += deposit;
     }
 
     public void setWithdraw(double withdraw) {
-        this.withdraw = withdraw;
+        this.balance -= withdraw + 5;
     }
 
     public double getBalance() {
-        return balance + deposit - withdraw;
+        return balance;
     }
 
     public void print(){
-        System.out.printf("Account: %d, Holder: %s, Balance: R$%.2f\n", accountNumber, accountHolder, getBalance());
+        System.out.printf("Account: %d, Holder: %s, Balance: R$%.2f\n", getAccountNumber(), getAccountHolder(), getBalance());
     }
 }
