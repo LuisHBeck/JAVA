@@ -69,6 +69,6 @@ public class train {
 
         position = positionA + (speedA * time);
 
-        System.out.printf("The train collision will happen in position %.2f and after %.2f hours", position, time);
+        System.out.printf("The train collision will happen in position %.2f and after %.2f seconds", position, time*3600);
     }
 }
