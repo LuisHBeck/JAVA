@@ -5,7 +5,7 @@ public class train {
     public static void main(String[] args) {
         Scanner tec = new Scanner(System.in);
 
-        double speedA = -1, speedB = 1, positionA = -1, positionB = 1;
+        double speedA = -1, speedB = 1, positionA = -1, positionB = -1, time, position;
 
         while (true){
             try {
@@ -24,7 +24,7 @@ public class train {
 
         while (true){
             try {
-                while (positionB > 0 || positionB < -10000){
+                while (positionB < 0 || positionB > 10000){
                     System.out.print("Input B's position (0 - -10000 Km)>> ");
                     positionB = tec.nextDouble();
                 }
@@ -64,5 +64,11 @@ public class train {
             }
             tec.nextLine();
         }
+
+        time = (positionA - positionB) / (speedB - speedA);
+
+        position = positionA + (speedA * time);
+
+        System.out.printf("The train collision will happen in position %.2f and after %.2f hours", position, time);
     }
 }
