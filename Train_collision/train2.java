@@ -17,6 +17,7 @@ public class train2 {
 
                 }catch (InputMismatchException e){
                     System.out.println("Invalid character. Try again");
+                    positionA = tec.nextDouble();
                 }
                 tec.nextLine();
             }while (positionA < 0 || positionA > 10000);
@@ -81,6 +82,5 @@ public class train2 {
             }
             tec.nextLine();
         }
-
     }
 }
