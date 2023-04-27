@@ -7,6 +7,7 @@ public class train {
 
         while (true){
             double speedA = -1, speedB = 1, positionA = -1, positionB = -1, time, position;
+            int initialHour, hour, minutes, seconds;
 
             while (true){
                 try {
@@ -90,12 +91,23 @@ public class train {
                 tec.nextLine();
             }
 
-            time = (positionA - positionB) / (speedB - speedA);
+            time = ((positionA - positionB) / (speedB - speedA));
+
+            int timeSeconds = (int) (time *3600);
 
             position = positionA + (speedA * time);
 
+            hour = 17; minutes = 0;
+
+            if (time % 60 == 0){
+                hour += ((int) time);
+            }else {
+                hour += ((int) time);
+                minutes += timeSeconds / 60;
+            }
+            
             System.out.println();
-            System.out.printf("The train collision will happen in position %.2f and after %.2f seconds", position, time*3600);
+            System.out.printf("The train collision will happen in position %.2f and after %d seconds at %d:%d:00", position, timeSeconds, hour, minutes);
             System.out.println();
             try {
                 System.out.print("Wanna break? [0]>> ");
