@@ -1,10 +1,8 @@
-package train;
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class train2 {
-    public static void main(String[] args) {
+public class train {
+    public static void main(String[] args){
         Scanner tec = new Scanner(System.in);
 
         while (true){
@@ -15,10 +13,16 @@ public class train2 {
                     while (positionA < 0 || positionA > 10000){
                         System.out.print("Input A's position (0 - 10000 Km)>> ");
                         positionA = tec.nextDouble();
+
+                        if (positionA < 0 || positionA > 10000){
+                            System.out.println("A's positions needs to be between 0 - 10000");
+                            System.out.println("Please try again.");
+                        }
                     }
                     break;
                 }catch (InputMismatchException e){
                     System.out.println("Invalid character. Try again");
+                    System.out.println();
                 }
                 tec.nextLine();
             }
@@ -30,10 +34,16 @@ public class train2 {
                     while (positionB < 0 || positionB > 10000){
                         System.out.print("Input B's position (0 - -10000 Km)>> ");
                         positionB = tec.nextDouble();
+
+                        if (positionB < 0 || positionB > 10000){
+                            System.out.println("B's positions needs to be between 0 - 10000");
+                            System.out.println("Please try again.");
+                        }
                     }
                     break;
                 }catch (InputMismatchException e){
                     System.out.println("Invalid character. Try again");
+                    System.out.println();
                 }
                 tec.nextLine();
             }
@@ -45,10 +55,16 @@ public class train2 {
                     while (speedA < 0 || speedA > 300){
                         System.out.print("Input A's speed (0 - 300 Km/h)>> ");
                         speedA = tec.nextDouble();
+
+                        if (speedA < 0 || speedA > 300){
+                            System.out.println("A's speed needs to be between 0 - 300");
+                            System.out.println("Please try again.");
+                        }
                     }
                     break;
                 }catch (InputMismatchException e){
                     System.out.println("Invalid character. Try again");
+                    System.out.println();
                 }
                 tec.nextLine();
             }
@@ -58,12 +74,18 @@ public class train2 {
             while (true){
                 try {
                     while (speedB > 0 || speedB < -300){
-                        System.out.print("Input A's speed (0 - 300 Km/h)>> ");
+                        System.out.print("Input B's speed (0 - 300 Km/h)>> ");
                         speedB = tec.nextDouble();
+
+                        if (speedB > 0 || speedB < -300){
+                            System.out.println("B's speed needs to be between 0 - -300");
+                            System.out.println("Please try again.");
+                        }
                     }
                     break;
                 }catch (InputMismatchException e){
                     System.out.println("Invalid character. Try again");
+                    System.out.println();
                 }
                 tec.nextLine();
             }
@@ -72,6 +94,7 @@ public class train2 {
 
             position = positionA + (speedA * time);
 
+            System.out.println();
             System.out.printf("The train collision will happen in position %.2f and after %.2f seconds", position, time*3600);
             System.out.println();
             try {
@@ -84,6 +107,7 @@ public class train2 {
                 System.out.println("Invalid character. Try again");
             }
             tec.nextLine();
+            System.out.println();
         }
     }
 }
