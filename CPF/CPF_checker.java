@@ -2,7 +2,7 @@ package CPF;
 
 import java.util.Scanner;
 
-public class CPFChecker {
+public class CPF_checker {
     public static void main(String[] args) {
         Scanner tec = new Scanner(System.in);
 
