@@ -1,27 +1,21 @@
 package CPF;
 
-import java.util.Scanner;
+import java.util.Random;
 
-public class CPF_checker {
+public class CPF_generator {
     public static void main(String[] args) {
-        Scanner tec = new Scanner(System.in);
 
         int sumCountOne = 10, sumCountTwo = 11;
         int countDigitOne = 0, countDigitTwo = 0;
         int digitOne, digitTwo;
+
+
         int[] cpf = new int[11];
-        String cpfString;
+        Random generator = new Random();
 
-        System.out.print("Input your CPF>> ");
-        cpfString = tec.nextLine();
-
-        cpfString = cpfString.replace(".", "");
-        cpfString = cpfString.replace("-", "");
-
-        for (int i=0; i<cpfString.length(); i++) {
-            cpf[i] = Character.getNumericValue(cpfString.charAt(i));
+        for (int i=0; i<9; i++){
+            cpf[i] = generator.nextInt(9);
         }
-        
 
         // CHECK DIGITO 1
         for (int i=0; i < 9; i++) {
