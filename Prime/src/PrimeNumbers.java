@@ -1,7 +1,6 @@
 package Prime;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class PrimeNumbers {
@@ -34,6 +33,12 @@ public class PrimeNumbers {
             }
 
             result = primeVerify(inputNumber);
+
+            if (result == true){
+                System.out.println("It's a prime number");
+            }else {
+                System.out.println("It's not a prime number");
+            }
             System.out.println(result);
 
             do {
